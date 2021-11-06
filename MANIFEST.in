@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include emaar *.css
+recursive-include emaar *.csv
+recursive-include emaar *.html
+recursive-include emaar *.ico
+recursive-include emaar *.js
+recursive-include emaar *.json
+recursive-include emaar *.md
+recursive-include emaar *.png
+recursive-include emaar *.py
+recursive-include emaar *.svg
+recursive-include emaar *.txt
+recursive-exclude emaar *.pyc
