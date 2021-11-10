@@ -194,3 +194,10 @@ fixtures = [
         ]
     ]}
 ]
+
+doc_events = {
+    "Sales Invoice": {
+        "after_insert": "emaar.sales_invoice.create_qr_code",
+        "on_trash": "emaar.sales_invoice.delete_qr_code_file"
+    }
+}
