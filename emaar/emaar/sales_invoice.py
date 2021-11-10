@@ -22,7 +22,7 @@ def create_qr_code(doc, method):
 	for field in fields:
 		if field.fieldname == 'qr_code' and field.fieldtype == 'Attach Image':
 			# creating qr code for the Sales Invoice
-			xml = """{{url}}""".format(url=frappe.utils.get_url_to_form("Sales Invoice", doc.name))
+			xml = """{0}""".format(frappe.utils.get_url_to_form("Sales Invoice", doc.name))
 			qr_image = io.BytesIO()
 			xml = qr_create(xml, error='L')
 			xml.png(qr_image, scale=4, quiet_zone=1)
