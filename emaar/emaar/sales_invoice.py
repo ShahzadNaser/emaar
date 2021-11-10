@@ -3,6 +3,7 @@ from pyqrcode import create as qr_create
 import io
 import os
 
+
 def create_qr_code(doc, method):
 	"""Create QR Code after inserting Sales Inv
 	"""
@@ -21,15 +22,10 @@ def create_qr_code(doc, method):
 	for field in fields:
 		if field.fieldname == 'qr_code' and field.fieldtype == 'Attach Image':
 			# creating qr code for the Sales Invoice
-			xml = """<QRCode>
-				<SellerName>{customer}</SellerName>
-				<DateAndTime>{posting_date}</DateAndTime>
-				<InvoiceTotal>{invoice_total}</InvoiceTotal>
-				<VATTotal>{vat_total}</VATTotal>
-			</QRCode>""".format(customer=doc.customer, posting_date=doc.posting_date, invoice_total=doc.grand_total, vat_total=doc.total_taxes_and_charges)
+			xml = """{{url}}""".format(url=frappe.utils.get_url_to_form("Sales Invoice", doc.name))
 			qr_image = io.BytesIO()
 			xml = qr_create(xml, error='L')
-			xml.png(qr_image, scale=2, quiet_zone=1)
+			xml.png(qr_image, scale=4, quiet_zone=1)
 
 			# making file
 			filename = f"QR-CODE-{doc.name}.png".replace(os.path.sep, "__")
@@ -60,3 +56,5 @@ def delete_qr_code_file(doc, method):
 			})
 			if len(file_doc):
 				frappe.delete_doc('File', file_doc[0].name)
+    
+    
