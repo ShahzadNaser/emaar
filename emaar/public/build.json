@@ -1,0 +1,6 @@
+{
+	"js/emaar.js":[
+		"public/js/navbar.html",
+		"public/js/about.js"
+	]
+}
