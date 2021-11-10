@@ -11,6 +11,15 @@ app_license = "MIT"
 
 # Includes in <head>
 # ------------------
+app_logo_url = '/assets/emaar/images/logo.jpeg'
+
+website_context = {
+	"favicon": 	"/assets/emaar/images/favicon.jpeg",
+	"splash_image": "/assets/emaar/images/splash.jpeg"
+}
+
+# include js, css files in header of desk.html
+app_include_js = "/assets/js/emaar.js"
 
 # include js, css files in header of desk.html
 # app_include_css = "/assets/emaar/css/emaar.css"
@@ -166,10 +175,22 @@ user_data_fields = [
 	}
 ]
 
-# Authentication and authorization
-# --------------------------------
+doctypes_list = []
 
-# auth_hooks = [
-# 	"emaar.auth.validate"
-# ]
-
+fixtures = [
+    {"doctype": "Client Script", "filters": [
+        [
+            "dt", "in", doctypes_list
+        ]
+    ]},
+    {"doctype": "Property Setter", "filters": [
+        [
+            "doc_type", "in", doctypes_list
+        ]
+    ]},
+    {"doctype": "Custom Field", "filters": [
+        [
+            "dt", "in", doctypes_list
+        ]
+    ]}
+]
