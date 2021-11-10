@@ -197,7 +197,7 @@ fixtures = [
 
 doc_events = {
     "Sales Invoice": {
-        "after_insert": "emaar.events.accounts.sales_invoice.create_qr_code",
-        "on_trash": "emaar.events.accounts.sales_invoice.delete_qr_code_file"
+        "after_insert": "emaar.emaar.sales_invoice.create_qr_code",
+        "on_trash": "emaar.emaar.sales_invoice.delete_qr_code_file"
     }
 }
